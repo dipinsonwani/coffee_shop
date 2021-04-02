@@ -118,8 +118,9 @@ class _HomePageState extends State<HomePage> {
 
 _coffeeCard(String img, String coffeeName, String shopName, String description,
     double price, bool isFavourite) {
+_usualCoffeeCard(String img, String coffeeName, double price, BuildContext context) {
   return Padding(
-    padding: EdgeInsets.only(left: 15.0, right: 15.0),
+    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
     child: Container(
       height: 300.0,
       width: 225.0,
@@ -201,6 +202,32 @@ _coffeeCard(String img, String coffeeName, String shopName, String description,
               ),
             ],
           )
+      height: 200,
+      width: 125,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [BoxShadow()],
+          color: Colors.white),
+      child: Stack(
+        children: [
+          Container(
+            height: 150,
+            width: 125,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                image:
+                    DecorationImage(image: AssetImage(img), fit: BoxFit.cover)),
+          ),
+          Positioned(
+              left: 80,
+              bottom: 53,
+              child: CircleAvatar(
+                radius: 18,
+                child: Icon(Icons.favorite),
+                foregroundColor: Colors.red,
+                backgroundColor: Colors.white,
+              )),
+            Positioned(left: 5,bottom: 36,child: Text(coffeeName,style: Theme.of(context).textTheme.subtitle2,))
         ],
       ),
     ),

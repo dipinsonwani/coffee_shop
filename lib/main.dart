@@ -21,6 +21,12 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w600,
                 color: Color(0xFF473D3A),
               ),
+              subtitle2: TextStyle(
+                fontFamily: 'varela',
+                fontSize: 15.0,
+                fontWeight: FontWeight.w800,
+                color: Color(0xFF473D3A),
+              ),
             )),
         home: HomePage());
   }
