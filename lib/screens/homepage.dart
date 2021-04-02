@@ -1,5 +1,7 @@
 import 'dart:ui';
 
+import 'package:coffee_shop/widgets/coffee_card.dart';
+import 'package:coffee_shop/widgets/usual_coffee.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Welcome, John',
+                'Welcome, Jake',
                 style: TextStyle(
                     fontFamily: 'varela',
                     fontSize: 30.0,
@@ -29,16 +31,13 @@ class _HomePageState extends State<HomePage> {
                     color: Color(0xFF473D3A)),
               ),
               Padding(
-                  padding: EdgeInsets.only(right: 15.0),
-                  child: Container(
-                    height: 45.0,
-                    width: 45.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(40.0),
-                        image: DecorationImage(
-                            image: AssetImage('assets/model.jpg'),
-                            fit: BoxFit.cover)),
-                  ))
+                padding: const EdgeInsets.only(right: 15.0),
+                child: CircleAvatar(
+                    child: Icon(
+                  Icons.account_circle,
+                  size: 25,
+                )),
+              ),
             ],
           ),
           Padding(
@@ -86,17 +85,21 @@ class _HomePageState extends State<HomePage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _coffeeCard(
+                CoffeeCard(
                     'assets/starbucks.png',
                     'Caffe Misto',
-                    'Coffeeshop',
                     'Our dark, rich espresso balanced with steamed milk and a light layer of foam',
                     499,
                     false),
-                _coffeeCard(
+                CoffeeCard(
                     'assets/starbucks.png',
                     'Caffe Latte',
-                    'BrownHouse',
+                    'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
+                    399,
+                    false),
+                CoffeeCard(
+                    'assets/starbucks.png',
+                    'Caffe Latte',
                     'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
                     399,
                     false)
@@ -116,120 +119,3 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-_coffeeCard(String img, String coffeeName, String shopName, String description,
-    double price, bool isFavourite) {
-_usualCoffeeCard(String img, String coffeeName, double price, BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-    child: Container(
-      height: 300.0,
-      width: 225.0,
-      child: Column(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Container(
-                height: 335,
-              ),
-              Positioned(
-                top: 75.0,
-                child: Container(
-                  padding: EdgeInsets.only(left: 10.0, right: 20.0),
-                  height: 260,
-                  width: 225,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(25.0),
-                      color: Color(0xFFDAB68C)),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        SizedBox(
-                          height: 60.0,
-                        ),
-                        Text(
-                          coffeeName,
-                          style: TextStyle(
-                            fontFamily: 'varela',
-                            fontSize: 32.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text(
-                          description,
-                          style: TextStyle(
-                            fontFamily: 'nunito',
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Text(
-                              '₹$price',
-                              style: TextStyle(
-                                fontFamily: 'varela',
-                                fontSize: 25.0,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF3A4742),
-                              ),
-                            ),
-                            Container(
-                                height: 40.0,
-                                width: 40.0,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20.0),
-                                    color: Colors.white),
-                                child: Center(
-                                    child: IconButton(
-                                  icon: Icon(Icons.favorite),
-                                  iconSize: 15.0,
-                                  color: isFavourite ? Colors.red : Colors.grey,
-                                  onPressed: () {},
-                                )))
-                          ],
-                        )
-                      ]),
-                ),
-              ),
-            ],
-          )
-      height: 200,
-      width: 125,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
-          boxShadow: [BoxShadow()],
-          color: Colors.white),
-      child: Stack(
-        children: [
-          Container(
-            height: 150,
-            width: 125,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                image:
-                    DecorationImage(image: AssetImage(img), fit: BoxFit.cover)),
-          ),
-          Positioned(
-              left: 80,
-              bottom: 53,
-              child: CircleAvatar(
-                radius: 18,
-                child: Icon(Icons.favorite),
-                foregroundColor: Colors.red,
-                backgroundColor: Colors.white,
-              )),
-            Positioned(left: 5,bottom: 36,child: Text(coffeeName,style: Theme.of(context).textTheme.subtitle2,))
-        ],
-      ),
-    ),
-  );
-}
