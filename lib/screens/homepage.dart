@@ -63,12 +63,7 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Text(
                   'Taste of the week',
-                  style: TextStyle(
-                    fontFamily: 'varela',
-                    fontSize: 17.0,
-                    fontWeight: FontWeight.w300,
-                    color: Color(0xFFb0AAA7),
-                  ),
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 25.0),
@@ -111,6 +106,10 @@ class _HomePageState extends State<HomePage> {
           SizedBox(
             height: 15.0,
           ),
+          Text(
+            'Your Usuals',
+            style: Theme.of(context).textTheme.subtitle1,
+          )
         ],
       ),
     );
