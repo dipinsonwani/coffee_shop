@@ -112,7 +112,25 @@ class _HomePageState extends State<HomePage> {
           Text(
             'Your Usuals',
             style: Theme.of(context).textTheme.subtitle1,
-          )
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          Container(
+            height: 220.0,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                UsualCoffeeCard(
+                    'assets/coffee.jpg', 'Espresso Coffee', 350, 4.0),
+                UsualCoffeeCard(
+                    'assets/coffee2.jpg', 'Latte Coffee', 350, 3.0),
+                UsualCoffeeCard(
+                    'assets/coffee3.jpg', 'Latte Coffee', 350, 3.0)
+              ],
+            ),
+          ),
+          SizedBox(height: 25.0)
         ],
       ),
     );
