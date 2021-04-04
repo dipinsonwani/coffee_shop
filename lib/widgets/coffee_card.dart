@@ -16,7 +16,7 @@ class CoffeeCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => DetailsScreen(),
+            builder: (context) => DetailsScreen(img: img,coffeeName: coffeeName,price: price,description:description),
           ));
         },
         child: Container(
@@ -109,7 +109,7 @@ class CoffeeCard extends StatelessWidget {
                       width: 100.0,
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage(img),
+                          image: AssetImage('assets/starbucks.png'),
                         ),
                       ),
                     ),
