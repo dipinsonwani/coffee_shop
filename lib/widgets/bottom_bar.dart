@@ -6,7 +6,7 @@ class BottomBar extends StatefulWidget {
 }
 
 class _BottomBarState extends State<BottomBar> {
-  int _selectedIndex;
+  int _selectedIndex =0;
   void _onTap(int index) {
     setState(() {
       _selectedIndex = index;
@@ -29,22 +29,21 @@ class _BottomBarState extends State<BottomBar> {
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.menu_book_outlined,
-                color: Colors.grey[400]
+                
               ),
               label: 'Menu',
-              activeIcon: Icon(
-                Icons.menu_book_outlined,
-                color: Colors.brown,
-              )),
+              
+              ),
           BottomNavigationBarItem(
               icon: Icon(Icons.shopping_bag), label: 'Orders'),
           BottomNavigationBarItem(
               icon: Icon(Icons.supervisor_account_rounded), label: 'Social'),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Menu'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'Profile'),
         ],
         currentIndex: _selectedIndex,
         onTap: _onTap,
         selectedItemColor: Colors.brown,
+        type: BottomNavigationBarType.fixed,
       );
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:coffee_shop/widgets/bottom_bar.dart';
 import 'package:coffee_shop/widgets/coffee_card.dart';
 import 'package:coffee_shop/widgets/usual_coffee.dart';
 import 'package:flutter/material.dart';
@@ -10,9 +11,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex=0;
+  void _onTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.brown[50],
+      bottomNavigationBar: BottomBar(),
       body: ListView(
         padding: EdgeInsets.only(left: 15.0),
         children: <Widget>[
@@ -44,7 +53,7 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 45.0),
             child: Container(
               child: Text(
-                'Let\'s select the best taste for your next coffee break!',
+                'It\'s a great day for coffee!',
                 style: TextStyle(
                   fontFamily: 'nunito',
                   fontSize: 17.0,
@@ -61,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Text(
-                  'Taste of the week',
+                  'Best Offers',
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 Padding(
@@ -86,19 +95,19 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               children: [
                 CoffeeCard(
-                    'assets/starbucks.png',
+                    'assets/coffee.jpg',
                     'Caffe Misto',
                     'Our dark, rich espresso balanced with steamed milk and a light layer of foam',
                     499,
                     false),
                 CoffeeCard(
-                    'assets/starbucks.png',
+                    'assets/coffee2.jpg',
                     'Caffe Latte',
                     'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
                     399,
                     false),
                 CoffeeCard(
-                    'assets/starbucks.png',
+                    'assets/coffee3.jpg',
                     'Caffe Latte',
                     'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
                     399,
@@ -107,7 +116,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(
-            height: 15.0,
+            height: 20.0,
           ),
           Text(
             'Your Usuals',
@@ -123,10 +132,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 UsualCoffeeCard(
                     'assets/coffee.jpg', 'Espresso Coffee', 350, 4.0),
-                UsualCoffeeCard(
-                    'assets/coffee2.jpg', 'Latte Coffee', 350, 3.0),
-                UsualCoffeeCard(
-                    'assets/coffee3.jpg', 'Latte Coffee', 350, 3.0)
+                UsualCoffeeCard('assets/coffee2.jpg', 'Latte Coffee', 350, 3.0),
+                UsualCoffeeCard('assets/coffee3.jpg', 'Latte Coffee', 350, 3.0)
               ],
             ),
           ),
@@ -136,4 +143,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
