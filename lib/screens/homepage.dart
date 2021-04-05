@@ -11,12 +11,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex=0;
-  void _onTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,9 +125,26 @@ class _HomePageState extends State<HomePage> {
               scrollDirection: Axis.horizontal,
               children: [
                 UsualCoffeeCard(
-                    'assets/coffee.jpg', 'Espresso Coffee', 350, 4.0),
-                UsualCoffeeCard('assets/coffee2.jpg', 'Latte Coffee', 350, 3.0),
-                UsualCoffeeCard('assets/coffee3.jpg', 'Latte Coffee', 350, 3.0)
+                  'assets/coffee.jpg',
+                  'Espresso Coffee',
+                  350,
+                  4.0,
+                  'Our dark, rich espresso balanced with steamed milk and a light layer of foam',
+                ),
+                UsualCoffeeCard(
+                  'assets/coffee2.jpg',
+                  'Latte Coffee',
+                  350,
+                  3.0,
+                  'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
+                ),
+                UsualCoffeeCard(
+                  'assets/coffee3.jpg',
+                  'Latte Coffee',
+                  350,
+                  3.0,
+                  'Rich, full-bodied espresso with bittersweet milk sauce and steamed milk',
+                )
               ],
             ),
           ),

@@ -6,8 +6,9 @@ class UsualCoffeeCard extends StatelessWidget {
   final String coffeeName;
   final double price;
   final double rating;
-
-  const UsualCoffeeCard(this.img, this.coffeeName, this.price, this.rating);
+  final String description;
+  const UsualCoffeeCard(
+      this.img, this.coffeeName, this.price, this.rating, this.description);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,12 @@ class UsualCoffeeCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => DetailsScreen(),
+            builder: (context) => DetailsScreen(
+              img: img,
+              coffeeName: coffeeName,
+              price: price,
+              description: description,
+            ),
           ));
         },
         child: Container(
